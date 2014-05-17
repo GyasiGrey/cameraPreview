@@ -20,7 +20,7 @@
                 while (false !== ($file = readdir($dirHndl)))
                 {
 			$fullPath = '/media/hdd1/Share/cameraDump/' . $file;
-                        if(is_dir($fullPath)) {
+                        if(is_dir($fullPath) && strcmp($file, '.') != 0 && strcmp($file, '..') != 0) {
                                 $retval[] = $file;
                         }
                 }
