@@ -13,6 +13,20 @@
 		return $retval;
 	}
 
+        function getAllDir() {
+               $retval = array();
+               $dirHndl = opendir('/media/hdd1/Share/cameraDump/');
+
+                while (false !== ($file = readdir($dirHndl)))
+                {
+			$fullPath = '/media/hdd1/Share/cameraDump/' . $file;
+                        if(is_dir($fullPath)) {
+                                $retval[] = $file;
+                        }
+                }
+
+                return $retval;
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en-us">
@@ -26,6 +40,18 @@
         <link rel="stylesheet" href="css/lightbox.css">
 </head>
 <body>
+	<?php
+	$dir = $_GET['dir'];
+	if(empty($dir)) {
+		$dirs = getAllDir();
+		foreach($dirs as $d) {
+	?>
+		<a href="?dir=<?php echo $d; ?>"><?php echo $d; ?></a><br/>
+	<?php
+		}
+	} else
+	{
+	?>
         <section id="examples" class="examples-section">
                 <div class="container">
                         <div class="image-row">
@@ -59,5 +85,8 @@
 			?>
 		</div>
 	</section>
+	<?php
+	}	//if(empty($dir))
+	?>
 </body>
 </html>
