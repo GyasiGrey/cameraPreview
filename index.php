@@ -56,8 +56,6 @@
                 <div class="container">
                         <div class="image-row">
 				<?php
-					$perPage = 8;
-					$startIndex = $_GET['start'];
 					$dir = $_GET['dir'];
 
 					$imgs = getDir($dir);
@@ -65,14 +63,8 @@
 					$index = 0;
 					foreach($imgs as $i) {
 						$index++;
-						if($index <= $startIndex) {
-							continue;
-						}
 
 						echo '<a class="example-image-link" href="/cameraDump/' . $dir . '/JPEG/' . $i . '" data-lightbox="previewGroup"><img class="example-image" src="/cameraDump/' . $dir . '/JPEG/' . $i . '" alt="/' . $i . '" /></a>';
-						if($index - $startIndex >= $perPage) {
-							break;
-						}
 					}
 				?>
 			</div>
