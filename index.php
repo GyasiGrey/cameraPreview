@@ -59,7 +59,7 @@
 					$perPage = 8;
 					$startIndex = $_GET['start'];
 					$dir = $_GET['dir'];
-					
+
 					$imgs = getDir($dir);
 
 					$index = 0;
@@ -69,20 +69,13 @@
 							continue;
 						}
 
-						echo '<a class="example-image-link" href="/cameraDump/' . $dir . '/JPEG/' . $i . '" data-lightbox="/' . $i . '"><img class="example-image" src="/cameraDump/' . $dir . '/JPEG/' . $i . '" alt="/' . $i . '" /></a>';
+						echo '<a class="example-image-link" href="/cameraDump/' . $dir . '/JPEG/' . $i . '" data-lightbox="previewGroup"><img class="example-image" src="/cameraDump/' . $dir . '/JPEG/' . $i . '" alt="/' . $i . '" /></a>';
 						if($index - $startIndex >= $perPage) {
 							break;
 						}
 					}
 				?>
 			</div>
-			<?php
-				$nextIndex = intval($startIndex) + $perPage;
-				$prevIndex = intval($startIndex) - $perPage;
-				echo '<a href="?start=' . $prevIndex . '&dir=' . $dir . '">Prev</a> | ';
-				echo '<a href="?start=0&dir=' . $dir . '">Start</a> | ';
-				echo '<a href="?start=' . $nextIndex . '&dir=' . $dir . '">Next</a>';
-			?>
 		</div>
 	</section>
 	<?php
