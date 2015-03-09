@@ -64,7 +64,7 @@
 					foreach($imgs as $i) {
 						$index++;
 
-						echo '<a class="example-image-link" href="/cameraDump/' . $dir . '/JPEG/' . $i . '" data-lightbox="previewGroup"><img class="example-image" src="/cameraDump/' . $dir . '/JPEG/' . $i . '" alt="/' . $i . '" /></a>';
+						echo '<a class="example-image-link" href="/cameraDump/' . $dir . '/JPEG/' . $i . '" data-lightbox="previewGroup"><img class="example-image" src="/cameraDump/' . $dir . '/JPEG/' . $i . '" alt="/' . $i . '" data-title="<a href='/cameraDump/" . $dir . "/" . str_replace('jpg', 'dng', $i) . "' target='_blank'>Get raw file</a>"/></a>';
 					}
 				?>
 			</div>
