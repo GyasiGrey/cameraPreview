@@ -15,9 +15,9 @@
 
         function getAllDir() {
                $retval = array();
-               $dirHndl = opendir('/media/hdd1/Share/cameraDump/');
+               $files = scandir('/media/hdd1/Share/cameraDump/');
 
-                while (false !== ($file = readdir($dirHndl)))
+                foreach($files as $file)
                 {
 			$fullPath = '/media/hdd1/Share/cameraDump/' . $file;
                         if(is_dir($fullPath) && strcmp($file, '.') != 0 && strcmp($file, '..') != 0) {
