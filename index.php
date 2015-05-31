@@ -1,7 +1,7 @@
 <?php
 	function getDir($dir) {
 		$retval = array();
-               $dirHndl = opendir('/media/hdd1/Share/cameraDump/' . $dir . '/JPEG/');
+               $dirHndl = opendir('/mnt/hdd1/Share/cameraDump/' . $dir . '/JPEG/');
 
                 while (false !== ($file = readdir($dirHndl)))
                 {
@@ -15,11 +15,11 @@
 
         function getAllDir() {
                $retval = array();
-               $files = scandir('/media/hdd1/Share/cameraDump/');
+               $files = scandir('/mnt/hdd1/Share/cameraDump/');
 
                 foreach($files as $file)
                 {
-			$fullPath = '/media/hdd1/Share/cameraDump/' . $file;
+			$fullPath = '/mnt/hdd1/Share/cameraDump/' . $file;
                         if(is_dir($fullPath) && strcmp($file, '.') != 0 && strcmp($file, '..') != 0) {
                                 $retval[] = $file;
                         }
