@@ -5,7 +5,7 @@
 
                 while (false !== ($file = readdir($dirHndl)))
                 {
-                        if(strstr($file, ".jpg") !== false) {
+                        if(stristr($file, ".jpg") !== false) {
 				$retval[] = $file;
 			}
                 }
